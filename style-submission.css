@@ -1,0 +1,304 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 250ms ease;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: white;
+    color: black;
+    overflow: hidden;
+}
+.main {
+    display: flex;
+    height: 100vh;
+    /* padding: 0.5rem; */
+}
+.sidebar{
+    background-color: white;
+    /* height: 100vh; */
+    width: 330px;
+    /* border-radius: 1rem; 16px */
+    /* margin-right: 0.5rem; */
+    text-align: center;
+}
+.logo{
+    background-color: white;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 2px solid #D9D9D9;
+    /* padding: 0 1rem;  */
+}
+.logo img {
+    margin-left: 1rem;
+    height: 100%; /* Adjust logo image to fill the container height */
+}
+.logo h3 {
+    margin: 0;
+    
+
+    /* flex: 1; Take up the remaining space */
+}
+.logo i {
+    /* height: 50; */
+    margin-left: 2rem;
+    margin-right: 1rem; 
+     /* Adjust icon color to match the design */
+}
+/* .logo i{
+    display: flex;
+
+    align-items: end;
+} */
+.username{
+    background-color: white;
+    height: 29vh;
+    border: 2px solid #D9D9D9;
+    align-content: center;
+}
+.username img{
+    /* margin-top: 1rem; */
+    height: 50%;
+    width: auto;
+    border-radius: 50%;
+}
+.username h4{
+    margin-top: 0.25rem;
+}
+
+.options{
+    background-color: white;
+    justify-content: center;
+    height: 45vh;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border: 2px solid #D9D9D9;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+.options button{
+    margin-bottom: 0.75rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    display: flex;
+    border: none;
+    /* justify-content: center; */
+    background-color: white;
+}
+.options button:hover {
+    background-color: #222222;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.options button i{
+    margin-right: 1rem;
+}
+.extras{
+    height: 18vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid #D9D9D9;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
+.extras button{
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    display: flex;
+    border: none;
+    background-color: white;
+}
+.extras button:hover {
+    background-color: #222222;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.extras button i{
+    margin-right: 1rem;
+}
+.display{
+    width: 100%;
+}
+.heading{
+    background-color: white;
+    height: 10vh;
+    font-size: 1rem;
+    padding: 1rem;
+    padding-left: 2rem;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-top: 2px solid #D9D9D9;
+    border-right: 2px solid #D9D9D9;
+    border-left: 2px solid #D9D9D9;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 2px solid #D9D9D9;
+    border-radius: 50px;
+    /* padding: 0.5rem; */
+    background-color: white;
+    width: 300px;
+    position: absolute; /* Absolute positioning */
+    right: 2rem; /* Distance from the right */
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 50px;
+}
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
+.search-btn {
+    /* background-color: #3498db; */
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    /* color: #fff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-btn i {
+    font-size: 16px;
+}
+
+.search-btn:hover {
+    background-color: white;
+}
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+} */
+
+.form-container {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    height: 90vh;
+    /* border-radius: 8px; */
+    border-left: 2px solid #D9D9D9;
+    border-right: 2px solid #D9D9D9;
+    border-bottom: 2px solid #D9D9D9;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+} */
+
+.form-group {
+    margin-bottom: 15px;
+    background-color: white;
+    padding: 1rem;
+    width: 600px;
+    border-radius: 0.5rem;
+    border: 2px solid #D9D9D9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+.form-group
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 0.5rem;
+    border: 2px solid #D9D9D9;
+    
+    /* margin-bottom: 10px; */
+}
+
+.choice{
+    display: flex;
+    flex-direction: row;
+    background-color: #f0f0f0;
+    
+}
+.choice button{
+    width: auto;
+    padding: 10px;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.new-project{
+    margin-left: 25rem;
+    /* position: absolute; Absolute positioning */
+    /* right: 2rem; Distance from the right */
+}
+.choice button:hover {
+    background-color: #222222;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.choice button i{
+    margin-right: 0.5rem;
+}
+
+#Enter_cords {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    width: auto;
+    padding: 7.5px;
+    background-color: #D9D9D9;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#Enter_cords:hover {
+    color: white;
+    background: #222222;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

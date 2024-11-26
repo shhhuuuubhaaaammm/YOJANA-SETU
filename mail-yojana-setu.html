@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Mails</title>
+    <link rel="stylesheet" href="style-mail.css">
+</head>
+<body>
+    <div class="main">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="./assets/logo-main.png" class="logo-main">
+                <h3 onclick="navigateToPage('dashboard-yojana-setu.html')">YOJANA SETU</h3>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="username">
+                <img src="./assets/user.jpg" class="user">
+                <h4>Name</h4>
+                <p>EmployeeID</p>
+            </div>
+            <div class="options">
+                <button onclick="navigateToPage('dashboard-yojana-setu.html')"><i class="fa-solid fa-house"></i>Home</button>
+                <button onclick="navigateToPage('analysis-yojana-setu.html')"><i class="fa-solid fa-square-poll-vertical"></i>Analysis</button>
+                <button onclick="navigateToPage('project-yojana-setu.html')"><i class="fa-solid fa-folder"></i>Projects</button>
+                <button onclick="navigateToPage('map-yojana-setu.html')"><i class="fa-solid fa-map"></i>Map</button>
+                <button onclick="navigateToPage('mail-yojana-setu.html')"><i class="fa-solid fa-envelope"></i>Mails</button>
+            </div>
+            <div class="extras">
+                <button><i class="fa-solid fa-gear"></i>Settings</button>
+                <button onclick="navigateToPage('login-yojana-setu.html')"><i class="fa-solid fa-right-from-bracket"></i>Log Out</button>
+            </div>
+        </div>
+        <div class="display">
+            <div class="heading">
+                <h1>Mails</h1>
+                <div class="search-container">
+                    <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" placeholder="Search..." class="search-input">
+                    
+                </div>
+            </div>
+            <div class="content">
+                <div class="side-chat">
+                    <div class="top-bar">
+                        <div class="search-chat">
+                            <button class="search-chat-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <input type="text" placeholder="Search..." class="search-chat-input">
+                        </div>
+                        <button class="filter-btn"><i class="fa-solid fa-filter"></i></button>
+                        <div class="filter-panel">
+                            <h3>Filter Options</h3>
+                            
+                            <div class="filter-option">
+                                <label for="status">Deparment</label>
+                                <select id="status">
+                                    <option value="">Select Department</option>
+                                    <option value="completed">Roadline Department</option>
+                                    <option value="pending">Pipeline Department</option>
+                                    <option value="ongoing">ED Department</option>
+                                    <option value="ongoing">PWD Department</option>
+                                    <option value="ongoing">MNGL Department</option>
+                                </select>
+                            </div>
+                            <div class="filter-option">
+                                <label for="status">Message Type</label>
+                                <select id="status">
+                                    <option value="">Select Status</option>
+                                    <option value="ongoing">Announcement</option>
+                                    <option value="completed">Groups</option>
+                                    <option value="pending">Projects</option>
+                                    <option value="ongoing">Members</option>
+                                    <option value="ongoing">Others</option>
+                                </select>
+                            </div>
+    
+                            <button class="apply-btn">Apply Filter</button>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-options">
+                        <button><i class="fa-solid fa-user"></i>Sanpada Pipeline Commitee</button>
+                        <button><i class="fa-solid fa-user"></i>Structural Engineer</button>
+                        <button><i class="fa-solid fa-user"></i>Railway Department</button>
+                        <button><i class="fa-solid fa-user"></i>Sion-Panvel Highway Project </button>
+                        <button><i class="fa-solid fa-user"></i>Junior Assistent</button>
+                        <button><i class="fa-solid fa-user"></i>Railway Project Supervisor</button>
+                        <button><i class="fa-solid fa-user"></i>Official Announcement</button>
+                    </div>
+                    
+                </div>
+                <div class="chat-content">
+                    <div class="chat-heading">
+                        <img src="./assets/pipeline edit new.jpg" class="chat-person">
+                        <div class="chat-info">
+                            <h3>Sanpada Pipeline Commitee</h3>
+                            <p>Supervisor, structural-engineer, civil-engineer, architect</p>
+                        </div>
+                        <div class="chat-icons">
+                            <button><i class="fa-solid fa-phone"></i></button>
+                            <button><i class="fa-solid fa-video"></i></button>
+                        </div>
+                    </div>
+                    <div class="chat-container">
+                        <div id="chat-box" class="chat-box"></div>
+                        <div class="input-box">
+                            <input type="text" id="chat-input" placeholder="Type a message...">
+                            <button id="send-btn">Send</button>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        const filterBtn = document.querySelector('.filter-btn');
+        const filterPanel = document.querySelector('.filter-panel');
+
+        // Toggle filter panel visibility on button click
+        filterBtn.addEventListener('click', function () {
+            if (filterPanel.style.display === 'none' || filterPanel.style.display === '') {
+                filterPanel.style.display = 'block';
+            } else {
+                filterPanel.style.display = 'none';
+            }
+        });
+        document.getElementById("send-btn").addEventListener("click", function() {
+          const input = document.getElementById("chat-input");
+          const message = input.value.trim();
+          
+          if (message !== "") {
+            // Create a new div for the message
+            const messageDiv = document.createElement("div");
+            messageDiv.classList.add("chat-message", "sent");
+            messageDiv.textContent = message;
+        
+            // Add the new message to the chat box
+            const chatBox = document.getElementById("chat-box");
+            chatBox.appendChild(messageDiv);
+        
+            // Scroll to the bottom of the chat box
+            chatBox.scrollTop = chatBox.scrollHeight;
+        
+            // Clear the input
+            input.value = "";
+          }
+        });
+        // Retrieve the Name and EmployeeID from localStorage
+        const name = localStorage.getItem("name");
+        const employeeID = localStorage.getItem("employeeID");
+
+        // If Name and EmployeeID exist, display them under username
+        if (name && employeeID) {
+            document.querySelector(".username h4").textContent = name;
+            document.querySelector(".username p").textContent = employeeID;
+        }
+        function navigateToPage(page) {
+            window.location.href = page;
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Submission Form</title>
+    <link rel="stylesheet" href="style-submission.css">
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="./assets/logo-main.png" class="logo-main">
+                <h3 onclick="navigateToPage('dashboard-yojana-setu.html')">YOJANA SETU</h3>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="username">
+                <img src="./assets/user.jpg" class="user">
+                <h4>Name</h4>
+                <p>EmployeeID</p>
+            </div>
+            <div class="options">
+                <button onclick="navigateToPage('dashboard-yojana-setu.html')"><i
+                        class="fa-solid fa-house"></i>Home</button>
+                <button onclick="navigateToPage('analysis-yojana-setu.html')"><i
+                        class="fa-solid fa-square-poll-vertical"></i>Analysis</button>
+                <button onclick="navigateToPage('project-yojana-setu.html')"><i
+                        class="fa-solid fa-folder"></i>Projects</button>
+                <button onclick="navigateToPage('map-yojana-setu.html')"><i class="fa-solid fa-map"></i>Map</button>
+                <button onclick="navigateToPage('mail-yojana-setu.html')"><i
+                        class="fa-solid fa-envelope"></i>Mails</button>
+            </div>
+            <div class="extras">
+                <button><i class="fa-solid fa-gear"></i>Settings</button>
+                <button onclick="navigateToPage('login-yojana-setu.html')"><i
+                        class="fa-solid fa-right-from-bracket"></i>Log Out</button>
+            </div>
+        </div>
+        <div class="display">
+            <div class="heading">
+                <h1>Project Submission Form</h1>
+                <div class="search-container">
+                    <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" placeholder="Search..." class="search-input">
+                </div>
+            </div>
+            <div class="form-container">
+                <form id="projectForm">
+                    <div class="form-group">
+                        <label for="name">Name of the Project:</label>
+                        <input type="text" class="answer" id="name" placeholder="Name of the Project" required>
+                    </div>
+
+                    <!-- Timeline and Deadline -->
+                    <div class="form-group">
+                        <label for="timeline">Timeline and Deadline:</label>
+                        <input type="date" class="answer" id="timeline" required>
+                    </div>
+
+                    <!-- Type of Construction -->
+                    <div class="form-group">
+                        <label for="constructionType">Type of Construction:</label>
+                        <select class="answer" id="constructionType" required>
+                            <option value="">Select Department</option>
+                            <option value="roadline">Roadline Department</option>
+                            <option value="pipeline">Pipeline Department</option>
+                            <option value="ed">ED Department</option>
+                            <option value="pwd">PWD Sector</option>
+                            <option value="mngl">Maharashtra Natural Gas Limited - MNGL</option>
+                        </select>
+                    </div>
+
+                    <!-- Sub-type (Populated via JavaScript based on selected construction type) -->
+                    <div class="form-group">
+                        <label for="subType">Sub Type:</label>
+                        <select class="answer" id="subType" required>
+                            <option value="">Select Sub Type</option>
+                        </select>
+                    </div>
+
+                    <!-- Maintenance -->
+                    <div class="form-group">
+                        <label for="maintenance">Maintenance:</label>
+                        <input type="text" class="answer" id="maintenance" placeholder="Describe maintenance needs"
+                            required>
+                    </div>
+
+                    <!-- Repair -->
+                    <div class="form-group">
+                        <label for="repair">Repair:</label>
+                        <input type="text" class="answer" id="repair" placeholder="Describe repair requirements"
+                            required>
+                    </div>
+
+                    <!-- Budget and Funding -->
+                    <div class="form-group">
+                        <label for="budget">Budget and Funding:</label>
+                        <input type="number" class="answer" id="budget" placeholder="Enter the project budget" required>
+                    </div>
+
+                    <!-- Legal Document Upload -->
+                    <div class="form-group">
+                        <label for="legalDocuments">Legal Document Upload:</label>
+                        <input type="file" class="answer" id="legalDocuments" required>
+                    </div>
+
+                    <!-- Enter Co-ordinates -->
+                    <div class="form-group">
+                        <label for="Proj_Cords">Co-ordinates:</label>
+                        <input type="text" class="answer" id="Proj_Cords" placeholder="Enter the Project Co-ordinates"
+                            required>
+                    </div>
+                    <button type="button" id="Enter_cords">Fetch Map location</button>
+                    <div class="choice">
+                        <button type="submit" class="submit-btn"
+                            onclick="navigateToPage('project-yojana-setu.html')">Submit</button>
+                        <button class="new-project" onclick="navigateToPage('submission-yojana-setu.html')"><i
+                                class="fa-solid fa-plus"></i>New Project</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="mapContainer" style="width: 950px; height: 650px; display: none; margin-top: 4rem; cursor: grab;">
+        </div>
+    </div>
+    <script>
+        const name = localStorage.getItem("name");
+        const employeeID = localStorage.getItem("employeeID");
+
+        if (name && employeeID) {
+            document.querySelector(".username h4").textContent = name;
+            document.querySelector(".username p").textContent = employeeID;
+        }
+
+        function navigateToPage(page) {
+            window.location.href = page;
+        }
+
+        const constructionType = document.getElementById('constructionType');
+        const subType = document.getElementById('subType');
+
+        const subTypesMap = {
+            roadline: ['Bridge', 'Service Road'],
+            pipeline: ['Reconstruction', 'Repairs'],
+            ed: ['Electrical System Design and Planning', 'Public Infrastructure Projects'],
+            pwd: ['Reconstruction of Buildings', 'Construction of Public Transport and Infrastructure', 'Preservation', 'Community Development Projects'],
+            mngl: ['New Pipeline', 'Reconstruction'],
+        };
+
+        constructionType.addEventListener('change', function () {
+            const selectedType = constructionType.value;
+            const options = subTypesMap[selectedType] || [];
+            subType.innerHTML = '<option value="">Select Sub Type</option>';
+            options.forEach(function (option) {
+                const newOption = document.createElement('option');
+                newOption.value = option.toLowerCase().replace(/\s+/g, '-');
+                newOption.textContent = option;
+                subType.appendChild(newOption);
+            });
+        });
+
+        document.getElementById('projectForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            console.log('Form submitted successfully!');
+        });
+
+        document.getElementById('Enter_cords').addEventListener('click', function () {
+            const apiKey = 'kuSLJQzBlovbSBDA8Gk0aLysoTLswqpozkQCCj3d6Nk';
+            const coordInput = document.getElementById('Proj_Cords').value;
+            const mapContainer = document.getElementById('mapContainer');
+            mapContainer.style.display = 'block';
+
+            // Decimal Coordinates Parsing Regex
+            const decimalRegex = /^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)$/;
+            const match = coordInput.match(decimalRegex);
+
+            if (match) {
+                const lat = parseFloat(match[1]); // Latitude
+                const lng = parseFloat(match[3]); // Longitude
+
+                console.log(`Latitude: ${lat}, Longitude: ${lng}`);  // Debugging line
+
+                const platform = new H.service.Platform({ apikey: apiKey });
+                const defaultLayers = platform.createDefaultLayers();
+
+                // Initialize the map centered on the coordinates
+                const map = new H.Map(
+                    mapContainer,
+                    defaultLayers.vector.normal.map,
+                    {
+                        center: { lat: lat, lng: lng },
+                        zoom: 15,
+                    }
+                );
+
+                // Add UI and interaction behaviors
+                const ui = H.ui.UI.createDefault(map, defaultLayers);
+                const mapEvents = new H.mapevents.MapEvents(map);
+                new H.mapevents.Behavior(mapEvents);
+
+                // Create a Custom marker and add it to the map
+                const customIcon = new H.map.Icon("./assets/place.png");
+                // Add the marker
+                const marker = new H.map.Marker({ lat: lat, lng: lng }, { icon: customIcon });
+                map.addObject(marker);
+
+
+            } else {
+                alert("Please enter coordinates in the correct format: latitude, longitude.");
+            }
+        });
+    </script>
+</body>
+
+</html>

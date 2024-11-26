@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Projects</title>
+    <link rel="stylesheet" href="style-project.css">
+</head>
+<body>
+    <div class="main">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="./assets/logo-main.png" class="logo-main">
+                <h3 onclick="navigateToPage('dashboard-yojana-setu.html')">YOJANA SETU</h3>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="username">
+                <img src="./assets/user.jpg" class="user">
+                <h4>Name</h4>
+                <p>EmployeeID</p>
+            </div>
+            <div class="options">
+                <button onclick="navigateToPage('dashboard-yojana-setu.html')"><i class="fa-solid fa-house"></i>Home</button>
+                <button onclick="navigateToPage('analysis-yojana-setu.html')"><i class="fa-solid fa-square-poll-vertical"></i>Analysis</button>
+                <button onclick="navigateToPage('project-yojana-setu.html')"><i class="fa-solid fa-folder"></i>Projects</button>
+                <button onclick="navigateToPage('map-yojana-setu.html')"><i class="fa-solid fa-map"></i>Map</button>
+                <button onclick="navigateToPage('mail-yojana-setu.html')"><i class="fa-solid fa-envelope"></i>Mails</button>
+            </div>
+            <div class="extras">
+                <button><i class="fa-solid fa-gear"></i>Settings</button>
+                <button onclick="navigateToPage('login-yojana-setu.html')"><i class="fa-solid fa-right-from-bracket"></i>Log Out</button>
+            </div>
+        </div>
+        <div class="display">
+            <div class="top-bar">
+                <div class="heading">
+                    <h1>Projects</h1>
+                    <div class="search-container">
+                        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input type="text" placeholder="Search..." class="search-input">
+                        
+                    </div>
+                </div>
+                <div class="filter-container">
+                    <button class="filter-btn"><i class="fa-solid fa-filter"></i>Filter</button>
+                    <div class="filter-panel">
+                        <h3>Filter Options</h3>
+                        <div class="filter-option">
+                            <label for="date">Date Range</label>
+                            <input type="date" id="date">
+                        </div>
+                        <div class="filter-option">
+                            <label for="status">Deparment</label>
+                            <select id="status">
+                                <option value="">Select Department</option>
+                                <option value="completed">Roadline Department</option>
+                                <option value="pending">Pipeline Department</option>
+                                <option value="ongoing">ED Department</option>
+                                <option value="ongoing">PWD Department</option>
+                                <option value="ongoing">MNGL Department</option>
+                            </select>
+                        </div>
+                        <div class="filter-option">
+                            <label for="status">Status</label>
+                            <select id="status">
+                                <option value="">Select Status</option>
+                                <option value="completed">Completed</option>
+                                <option value="pending">Pending</option>
+                                <option value="ongoing">Ongoing</option>
+                            </select>
+                        </div>
+
+                        <button class="apply-btn">Apply Filter</button>
+                    </div>
+                    
+                    <div class="add-project">
+                        <button onclick="navigateToPage('submission-yojana-setu.html')"><i class="fa-solid fa-plus"></i>New Project</button>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content">
+                
+
+                <div class="project-card">
+                    <div class="project-box" onclick="navigateToPage('project-report-yojana-setu.html')">
+
+                        <img src="./assets/sanpada-pipeline.jpg" class="project-img">
+                        <div class="project-details">
+                            <h3>Sanpada's water woes set to ease as new pipeline laying work</h3>
+                            <p>The persistent water woes plaguing the CIDCO Colony in Sanpada Sector-10, along with several private societies and row house areas, are soon to become a thing of the past. The long-standing issue of inadequate water supply owing to low water pressure has prompted decisive action from the concerned authorities, leading to the initiation of a ground breaking project aimed at addressing the water scarcity in the area.</p>
+                        </div>
+                        <div class="project-status pending">Delay: 25 Days</div>
+                    </div>
+                    <div class="project-box" onclick="navigateToPage('project-report-yojana-setu.html')">
+
+                        <img src="./assets/railway.webp" class="project-img">
+                        <div class="project-details">
+                            <h3>Panvel-Karjat rail project gets tunnel push</h3>
+                            <p>The longest-ever 2.6 km tunnel on a new suburban local train corridor between Karjat-Panvel on Friday achieved a breakthrough this afternoon at 12.30 pm, expediting work on the new corridor. The deadline for the project is December 2025.</p>
+                        </div>
+                        <div class="project-status seen">Delay: 7 Days</div>
+                    </div>
+                    <div class="project-box" onclick="navigateToPage('project-report-yojana-setu.html')">
+
+                        <img src="./assets/water.webp" class="project-img">
+                        <div class="project-details">
+                            <h3>Water Supply, Sewage System For Panvel</h3>
+                            <p>The Municipal Corporation Panvel City (PCMC) has finally received approval from the state & central government for essential infrastructure projects, such as improving the drinking water supply and developing a sewerage system, valued at Rs 355.7 crores. This comes as a boost for PCMC after a long wait, as the funds will be provided in accordance with the expansive Atal Missions for Rejuvenation & Urban Transition (AMRUT) 2.0 plan.</p>
+                        </div>
+                        <div class="project-status go">Ongoing</div>
+                        
+                    </div>
+                    <div class="project-box" onclick="navigateToPage('project-report-yojana-setu.html')">
+
+                        <img src="./assets/electricity.jpg" class="project-img">
+                        <div class="project-details">
+                            <h3>Nidar Utilities' 3  MW RTC Renewable Power Procurement</h3>
+                            <p>Nidar Utilities, a distribution licensee serving the Panvel Special Economic Zone (SEZ) area in Raigad District, meets its 5.5 MW power demand through two short-term PPAS.
+
+                                One PPA, with Vindhyachal Hydro Power (VHPPL), provides 3 MW of power from February 2023 to January 2024. The other, with GMR Energy Trading, offers 3 MW RTC power from July 2023 to June 2024.</p>
+                        </div>
+                        <div class="project-status go">Ongoing</div>
+                    </div>
+                    <!-- <div class="project-box">
+
+                        <img src="./assets/project-img.avif" class="project-img">
+                        <div class="project-details">
+                            <h3>Project 1</h3>
+                            <p>Description...</p>
+                        </div>
+                        <div class="project-status pending">Pending</div>
+                    </div> -->
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const filterBtn = document.querySelector('.filter-btn');
+        const filterPanel = document.querySelector('.filter-panel');
+
+        // Toggle filter panel visibility on button click
+        filterBtn.addEventListener('click', function () {
+            if (filterPanel.style.display === 'none' || filterPanel.style.display === '') {
+                filterPanel.style.display = 'block';
+            } else {
+                filterPanel.style.display = 'none';
+            }
+        });
+        // Retrieve the Name and EmployeeID from localStorage
+        const name = localStorage.getItem("name");
+        const employeeID = localStorage.getItem("employeeID");
+
+        // If Name and EmployeeID exist, display them under username
+        if (name && employeeID) {
+            document.querySelector(".username h4").textContent = name;
+            document.querySelector(".username p").textContent = employeeID;
+        }
+        function navigateToPage(page) {
+        window.location.href = page;
+        }
+    </script>
+</body>
+</html>

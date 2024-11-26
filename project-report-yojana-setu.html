@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Project Report</title>
+    <link rel="stylesheet" href="style-project-report.css">
+</head>
+<body>
+    <div class="main">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="./assets/logo-main.png" class="logo-main">
+                <h3 onclick="navigateToPage('dashboard-yojana-setu.html')">YOJANA SETU</h3>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="username">
+                <img src="./assets/user.jpg" class="user">
+                <h4>Name</h4>
+                <p>EmployeeID</p>
+            </div>
+            <div class="options">
+                <button onclick="navigateToPage('dashboard-yojana-setu.html')"><i class="fa-solid fa-house"></i>Home</button>
+                <button onclick="navigateToPage('analysis-yojana-setu.html')"><i class="fa-solid fa-square-poll-vertical"></i>Analysis</button>
+                <button onclick="navigateToPage('project-yojana-setu.html')"><i class="fa-solid fa-folder"></i>Projects</button>
+                <button onclick="navigateToPage('map-yojana-setu.html')"><i class="fa-solid fa-map"></i>Map</button>
+                <button onclick="navigateToPage('mail-yojana-setu.html')"><i class="fa-solid fa-envelope"></i>Mails</button>
+            </div>
+            <div class="extras">
+                <button><i class="fa-solid fa-gear"></i>Settings</button>
+                <button onclick="navigateToPage('login-yojana-setu.html')"><i class="fa-solid fa-right-from-bracket"></i>Log Out</button>
+            </div>
+        </div>
+        <div class="display">
+            <div class="heading">
+                <h1>Project Report</h1>
+                <div class="search-container">
+                    <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" placeholder="Search..." class="search-input">
+                    
+                </div>
+            </div>
+            <div class="content">
+                <div class="project-content">
+                    <h2 class="project-topic">Sanpada's water woes set to ease as new pipeline laying work</h2>
+                    <img src="./assets/sanpada-pipeline.jpg" class="new-project-img">
+                    <h3 class="project-subtopic">Project Description</h3>
+                    <p>The persistent water woes plaguing the CIDCO Colony in Sanpada Sector-10, along with several private societies and row house areas, are soon to become a thing of the past. The long-standing issue of inadequate water supply owing to low water pressure has prompted decisive action from the concerned authorities, leading to the initiation of a ground breaking project aimed at addressing the water scarcity in the area.</p>
+                </div>
+                <div class="project-content project-info">
+                    <div class="project-box project-left">
+                        
+                        <div class="project-card">
+                            <h3>Project Analysis</h3>
+                            <img src="./assets/project donut.png" class="new-project-img">
+                            <button>Full Project Analysis</button>
+                        </div>
+                        <div class="project-card">
+                            <h3>Project Report</h3>
+                            <img src="./assets/pipeline project.avif" class="new-project-img">
+                            <button>Full Project Analysis</button>
+                        </div>
+                        <div class="project-card">
+                            <h3>Project Map</h3>
+                            <img src="./assets/pipeline route.jpg" class="new-project-img">
+                            
+                        </div>
+                    </div>
+                    <div class="project-box project-right">
+                        
+                        <div class="project-detail">
+                            <h3>Project Details</h3>
+                            <div class="data">
+                                <ul>
+                                    <li>Status</li>
+                                    <li>Deadline</li>
+                                    <li>Connected Projects</li>
+                                </ul>
+                                <ul class="sub-data">
+                                    <li>25</li>
+                                    <li>21-11-2024</li>
+                                    <li>11</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <h3>Mails</h3>
+                            <div class="list">
+                                <p class="top" onclick="navigateToPage('mail-yojana-setu.html')"><i class="fa-solid fa-user"></i>Road Department</p>
+                                <p onclick="navigateToPage('mail-yojana-setu.html')"><i class="fa-solid fa-user"></i>Meeting with incharge</p>
+                                <p onclick="navigateToPage('mail-yojana-setu.html')"><i class="fa-solid fa-user"></i>Engineer site review</p>
+                                <p onclick="navigateToPage('mail-yojana-setu.html')"><i class="fa-solid fa-user"></i>Cable Department</p>
+                                <p class="bottom" onclick="navigateToPage('mail-yojana-setu.html')"><i class="fa-solid fa-user"></i>Water logging issue</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        
+        // Retrieve the Name and EmployeeID from localStorage
+        const name = localStorage.getItem("name");
+        const employeeID = localStorage.getItem("employeeID");
+
+        // If Name and EmployeeID exist, display them under username
+        if (name && employeeID) {
+            document.querySelector(".username h4").textContent = name;
+            document.querySelector(".username p").textContent = employeeID;
+        }
+        function navigateToPage(page) {
+        window.location.href = page;
+        }
+    
+    </script>
+</body>
+</html>

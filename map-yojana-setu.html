@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>HERE Map in Electron</title>
+    <link rel="stylesheet" href="style-map.css">
+</head>
+<body>
+    <div class="main">
+        <div class="sidebar">
+            <div class="logo">
+                <img src="./assets/logo-main.png" class="logo-main">
+                <h3 onclick="navigateToPage('dashboard-yojana-setu.html')">YOJANA SETU</h3>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="username">
+                <img src="./assets/user.jpg" class="user">
+                <h4>Name</h4>
+                <p>EmployeeID</p>
+            </div>
+            <div class="options">
+                <button onclick="navigateToPage('dashboard-yojana-setu.html')"><i class="fa-solid fa-house"></i>Home</button>
+                <button onclick="navigateToPage('analysis-yojana-setu.html')"><i class="fa-solid fa-square-poll-vertical"></i>Analysis</button>
+                <button onclick="navigateToPage('project-yojana-setu.html')"><i class="fa-solid fa-folder"></i>Projects</button>
+                <button onclick="navigateToPage('map-yojana-setu.html')"><i class="fa-solid fa-map"></i>Map</button>
+                <button onclick="navigateToPage('mail-yojana-setu.html')"><i class="fa-solid fa-envelope"></i>Mails</button>
+            </div>
+            <div class="extras">
+                <button><i class="fa-solid fa-gear"></i>Settings</button>
+                <button onclick="navigateToPage('login-yojana-setu.html')"><i class="fa-solid fa-right-from-bracket"></i>Log Out</button>
+            </div>
+        </div>
+        <div class="display">
+            <div class="heading">
+                <h1>Maps</h1>
+            </div>
+             <div class="content">
+            <div id="mapContainer"></div>
+            <div class="map-mask"></div>
+            
+        </main>
+        <div class="main">
+            <aside class="sidebar">
+                <!-- Sidebar content remains unchanged -->
+            </aside>
+    
+            <main class="display">
+                <!-- Main content remains unchanged -->
+            </main>
+    
+            <!-- New Right Tab -->
+           <div class="right-tab">
+            <h2>Projects</h2>
+            <div class="filter-container">
+                <button class="filter-btn"><i class="fa-solid fa-filter"></i></button>
+                <div class="filter-panel">
+                    
+                    <div class="filter-option">
+                        <label for="status">Status</label>
+                        <select id="status">
+                            <option value="none"></option>
+                            <option value="completed">Completed</option>
+                            <option value="pending">Ongoing</option>
+                            <option value="ongoing">Repairs</option>
+                            <option value="ongoing">Scheduled</option>
+                         </select>
+                    </div>
+                    
+
+                    <button class="apply-btn">Apply Filter</button>
+                </div>
+
+            <!-- Additional content -->
+            <div class="tab-content">
+                <!-- Blank space or any other content can go here -->
+               
+            </div>
+        </div>
+
+    </div>
+
+        </div>
+
+    </div>
+</div>
+    </body>
+    <script>
+        const filterBtn = document.querySelector('.filter-btn');
+        const filterPanel = document.querySelector('.filter-panel');
+
+        // Toggle filter panel visibility on button click
+        filterBtn.addEventListener('click', function () {
+            if (filterPanel.style.display === 'none' || filterPanel.style.display === '') {
+                filterPanel.style.display = 'block';
+            } else {
+                filterPanel.style.display = 'none';
+            }
+        });
+        // Retrieve the Name and EmployeeID from localStorage
+        const name = localStorage.getItem("name");
+        const employeeID = localStorage.getItem("employeeID");
+
+        // If Name and EmployeeID exist, display them under username
+        if (name && employeeID) {
+            document.querySelector(".username h4").textContent = name;
+            document.querySelector(".username p").textContent = employeeID;
+        }
+        function navigateToPage(page) {
+        window.location.href = page;
+        }
+    </script>
+
+    <!-- HERE Maps API -->
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <link rel="stylesheet" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+
+    <script>
+        // Initialize the HERE platform
+        const platform = new H.service.Platform({
+            apikey: 'kuSLJQzBlovbSBDA8Gk0aLysoTLswqpozkQCCj3d6Nk'
+        });
+
+        const defaultLayers = platform.createDefaultLayers();
+
+        // Initialize map
+        const map = new H.Map(
+            document.getElementById('mapContainer'),
+            defaultLayers.vector.normal.map,
+            {
+                zoom: 16,
+                center: { lat: 19.034518, lng: 73.082582 }
+            }
+        );
+
+        
+
+        // Enable map events and default behavior
+        const mapEvents = new H.mapevents.MapEvents(map);
+        const behavior = new H.mapevents.Behavior(mapEvents);
+
+        // Add UI controls
+        const ui = H.ui.UI.createDefault(map, defaultLayers);
+
+        // Resize map on window resize
+        window.addEventListener('resize', () => map.getViewPort().resize());
+
+        
+        // Position the mask over Kamothe
+        const kamotheCenter = { lat: 19.034518, lng: 73.082582 };
+        
+        function updateMask() {
+            const screenCenter = map.geoToScreen(kamotheCenter);
+            document.querySelector('.map-mask').style.clipPath = `circle(150px at ${screenCenter.x}px ${screenCenter.y}px)`;
+        }
+
+        // Update mask position on map move
+        map.addEventListener('mapviewchange', updateMask);
+        
+        // Initial mask position
+        updateMask(); 
+
+       
+         
+       
+    </script>
+    
+</body>
+</html>
